@@ -1,0 +1,26 @@
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        #nlogn -> n size, logn -> sorting algorithm
+        hmap1 = {}
+        sum = 0
+        for st, num in enumerate(s):
+            hmap1[num] = hmap1.get(num, 0) + 1
+        print(hmap1)
+
+        for st, num in enumerate(t):
+            if num in hmap1:
+                hmap1[num] = hmap1.get(num,0) - 1
+            else:
+                return False
+
+        for val in hmap1:
+            if hmap1[val]<0:
+                return False
+            sum += hmap1[val]
+        print(hmap1)
+        print(sum)
+        if sum == 0:
+            return True
+        else:
+            return False
+            
