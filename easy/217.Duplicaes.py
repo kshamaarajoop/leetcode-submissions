@@ -6,3 +6,13 @@ class Solution:
                 return True
             hashMap[nums[i]] = i
         return False
+#two pointers - SC 0(1) TC O(n)
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        nums.sort()
+        i = 1
+        while i<len(nums):
+            if nums[i-1]==nums[i]:
+                return True
+            i += 1
+        return False
