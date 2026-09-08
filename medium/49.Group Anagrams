@@ -1,0 +1,16 @@
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        hmap = {}
+        for i in strs:
+            count = [0]*26
+            for char in i:
+                indx = ord(char) - ord('a')
+                count[indx] += 1
+            print(count)
+            key = tuple(count)
+            if key not in hmap:
+                hmap[key] = [i]
+            else:
+                hmap[key].append(i)
+
+        return list(hmap.values())
