@@ -1,0 +1,23 @@
+class Solution:
+    def isAlienSorted(self, words: List[str], order: str) -> bool:
+        hMap = {}
+        for i in range(len(order)):
+            hMap[order[i]] = i
+        for i in range(len(words)-1):
+            for j in range(len(words[i])):
+                if (j >= len(words[i+1])):
+                    print(j)
+                    print(words[i+1])
+                    return False
+                elif words[i][j] != words[i+1][j]:
+                    curr = hMap[words[i][j]]
+                    next = hMap[words[i+1][j]]
+                    print(curr)
+                    print(next)
+                    if curr > next:
+                        return False
+                    else:
+                        break
+        return True
+
+        print(hMap)
