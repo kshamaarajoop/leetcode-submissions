@@ -1,0 +1,11 @@
+class Solution:
+    def minMoves(self, nums: List[int]) -> int:
+        mov=0
+        max_val = max(nums)
+        for i in range(len(nums)):
+            mov += max_val-nums[i]
+        return mov
+
+
+
+        
